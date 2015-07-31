@@ -49,7 +49,7 @@ REST is an architectural style, not a particular set of rules. As a result, ther
 
 # 3 Guidelines
 
-The following guidelines are derived from best practices, as described in a variety of sources including some prior art at Cisco, _RESTful Web Services_ \(link: [#RWS)\], _RESTful API Foundation_ \(link: [#RAF)\], _RESTful Objects Specification_ \(link: [#ROS]\).  However, in the interest of reducing ambiguity and promoting consistency among CCATG applications, This section uses somewhat more normative language than is typically used in a best-practices discussion.
+The following guidelines are derived from best practices, as described in a variety of sources including some prior art at Cisco.  However, in the interest of reducing ambiguity and promoting consistency among Cisco applications, this section uses somewhat more normative (prescriptive) language than is typically used in a best-practices discussion.
 
 The following definitions apply for all specifications of section 3.
 
@@ -102,11 +102,11 @@ The following definitions apply for all specifications of section 3.
 
 **3.1.7** Services MUST NOT run as root.
 
-**3.1.8** Services MUST perform input validation on all REST request parameters (see (link: https://www.owasp.org/index.php/Top_10_2010-A1-Injection text: Injection Attacks )).
+**3.1.8** Services MUST perform input validation on all REST request parameters (see https://www.owasp.org/index.php/Top_10_2010-A1-Injection).
 
 **3.1.9** Services MUST NOT accept or transmit sensitive data or user privacy data (PII) such as credentials, keys, passwords, SSN, credit card numbers, etc., in URLs.  Services SHOULD accepts and transmit such data as part of request and response entity-body data.
 
-**3.1.10** Services MUST NOT expose through their API any predictable internal key references to objects.  That is, build the API to secure against Direct Object Reference vulnerabilities (see (link: https://www.owasp.org/index.php/Top_10_2010-A4-Insecure_Direct_Object_References text: Insecure Direct Object References )).
+**3.1.10** Services MUST NOT expose through their API any predictable internal key references to objects.  That is, build the API to secure against Direct Object Reference vulnerabilities (see https://www.owasp.org/index.php/Top_10_2010-A4-Insecure_Direct_Object_References text).
 
 * invalid example:
 
@@ -150,7 +150,7 @@ https://example.com/user/AccountInfo?email=bob@cisco.com
 
 **3.3.1** Resource representations MUST be based on established standards when such standards exist for the resource type.
 
-**3.3.2** Where resource representation standards do not apply, structured data resources MUST support update and retrieval based on JSON representations. The media type to be used in HTTP requests and responses which contain entity data in JSON format MUST be {{application/json}}, and optionally qualified with a {{charset=UTF-8}} parameter.  Absent this qualification, however, it MUST be assumed that the entity data is encoded as UTF-8.
+**3.3.2** Where resource representation standards do not apply, structured data resources MUST support update and retrieval based on JSON representations. The media type to be used in HTTP requests and responses which contain entity data in JSON format MUST be `application/json`, and optionally qualified with a `charset=UTF-8` parameter.  Absent this qualification, however, it MUST be assumed that the entity data is encoded as UTF-8.
 
 **examples**:
 
@@ -220,11 +220,11 @@ The above is valid because the author is represented using a reference represent
 
 **3.3.7** In addition to the required "url" field, a service MAY include additional identification properties as part of a resource representation, such as an "id" field.  If present, any such field MUST be advertised to clients as opaque, non-canonicalizable to the resource URL, and potentially unstable over an extended period of time.
 
-**3.3.8** Date and time fields MUST be represented as strings and formatted according to RFC-3339, specifically the ABNF syntax specification for {{iso-date-time}}.
+**3.3.8** Date and time fields MUST be represented as strings and formatted according to RFC-3339, specifically the ABNF syntax specification for `iso-date-time`.
 
-**3.3.9** Duration fields MUST be represented as either integers representing lengths of time in whole seconds, or strings and formatted according to RFC-3339, specifically the ABNF syntax specification for {{duration}}.
+**3.3.9** Duration fields MUST be represented as either integers representing lengths of time in whole seconds, or strings and formatted according to RFC-3339, specifically the ABNF syntax specification for `duration`.
 
-**3.3.10** Temporal interval fields MUST be represented as strings and formatted according to RFC-3339, specifically the ABNF syntax specification for {{period}}.
+**3.3.10** Temporal interval fields MUST be represented as strings and formatted according to RFC-3339, specifically the ABNF syntax specification for `period`.
 
 **3.3.11** With regard to JSON representation property names, and URL query parameters, services SHOULD:
 *  choose meaningful and succinct names,
@@ -286,7 +286,7 @@ Both URLs above may return the same resource representation, however the first r
 
 **3.4.1.4** A resource's canonical URL MUST be immutable, such that it may be used to access its associated resource at any point in time for at long as that resource exists.
 
-**3.4.1.5** A service MUST NOT apply any semantic interpretation of the domain portion of the URL or HTTP {{Host:}} header when servicing a request.  That is, the host and domain portion of a request MUST be regarded as opaque.
+**3.4.1.5** A service MUST NOT apply any semantic interpretation of the domain portion of the URL or HTTP `Host:` header when servicing a request.  That is, the host and domain portion of a request MUST be regarded as opaque.
 
 **3.4.1.6** For the purpose of these guidelines, we define two types of HTTP endpoints. **UI endpoints** are URLs that provide access to resources intended for direct use by a web browser (e.g. HTML, graphics, JavaScript, etc.). **API endpoints** are URLs that provide access to resources intended for use by application clients and other services (e.g. structured data in the form of JSON documents, vCards, etc.).  Further, we define **vanity domain** to mean any FQDN containing a customer-specific identifier (e.g. api.nike.webex.com).  Given these definitions, the following applies for the usage of vanity domains in cloud-based service deployments:
 
@@ -339,7 +339,7 @@ https://files.webex.com/files/v3/documents/b569fe/public
 ```
 
 
-where {{b569fe}} is the {{userId}} of the request originator.
+where `b569fe` is the `userId` of the request originator.
 
 **3.4.2.2** In the absence of an explicit user ID or `@me` token in the URL, a service MUST NOT assume an endpoint is intended to refer to a resource related to the authenticated request originator.
 
@@ -359,12 +359,12 @@ The above cannot be assumed to represent documents owned by the request originat
 
 ### 3.5.1 Standard Headers
 
-**3.5.1.1** Services SHOULD support the {{ETag}} header in any HTTP response where it is reasonable for clients or proxies to cache the associated resource representation. In cases where {{ETag}} is supported, such resources SHOULD also support {{If-Match}} and {{If-None-Match}} headers.
-Where caching is not appropriate, services MUST include a {{Cache-Control}} header (e.g. max-age=0, no-cache, no-store, must-revalidate) and MUST NOT include an ETag header.
+**3.5.1.1** Services SHOULD support the `ETag` header in any HTTP response where it is reasonable for clients or proxies to cache the associated resource representation. In cases where `ETag` is supported, such resources SHOULD also support `If-Match` and `If-None-Match` headers.
+Where caching is not appropriate, services MUST include a `Cache-Control` header (e.g. max-age=0, no-cache, no-store, must-revalidate) and MUST NOT include an ETag header.
 
 **3.5.1.2** Services SHOULD support standard HTTP compression content codings, as outlined in section 3.5 of the HTTP spec (FIXME).
 
-**3.5.1.3** If a request includes an HTTP {{Accept}} header, the service MUST return a resource representation corresponding to a type presented in that header, or return an appropriate error code.  Exceptions include the following list of formats, which MUST be regarded as acceptance by the client of responses with JSON formatted resource representations.
+**3.5.1.3** If a request includes an HTTP `Accept` header, the service MUST return a resource representation corresponding to a type presented in that header, or return an appropriate error code.  Exceptions include the following list of formats, which MUST be regarded as acceptance by the client of responses with JSON formatted resource representations.
 
 ```
 application/x-www-form-urlencoded
@@ -372,29 +372,29 @@ text/plain
 ```
 
 
-**3.5.1.4** Absence of an {{Accept}} header in a request MUST be regarded as acceptance by the client of responses with JSON formatted resource representations.
+**3.5.1.4** Absence of an `Accept` header in a request MUST be regarded as acceptance by the client of responses with JSON formatted resource representations.
 
-**3.5.1.5** When responding to a request with an error code, the service MAY return the JSON formatted response payload described in section 3.9 regardless of the presence or contents of an {{Accept}} header in the original request.
+**3.5.1.5** When responding to a request with an error code, the service MAY return the JSON formatted response payload described in section 3.9 regardless of the presence or contents of an `Accept` header in the original request.
 
 **3.5.1.6** If the last segment of the path of a request URL contains a "." (dot) the service MUST regard the portion of the URL following that dot as a "format extension", and the preceding portion of the URL as identifying the actual resource to be operated upon.
 
-**3.5.1.7** A request made on a URL with a format extension MUST be treated as though the corresponding format were provided as an {{Accept:}} header in the request (based on Apache MIME to file extension mappings MIME2EXT (FIXME).  If the request contains an explicit {{Accept:}} header, the explicit {{Accept}} header MUST be disregarded in favor of the format extension.
+**3.5.1.7** A request made on a URL with a format extension MUST be treated as though the corresponding format were provided as an `Accept:` header in the request (based on Apache MIME to file extension mappings MIME2EXT (FIXME).  If the request contains an explicit `Accept:` header, the explicit `Accept` header MUST be disregarded in favor of the format extension.
 
-**3.5.1.8** A request made on a URL with a format extension, and including entity content, MUST result in an error response if the request's {{Content-Type:}} header does not match the format indicated by the format extension (based on Apache MIME to file extension mappings MIME2EXT (FIXME).  Exceptions include cases where the {{Content-Type}} header is either missing from the request, or indicates one or more of the following formats:
+**3.5.1.8** A request made on a URL with a format extension, and including entity content, MUST result in an error response if the request's `Content-Type:` header does not match the format indicated by the format extension (based on Apache MIME to file extension mappings MIME2EXT (FIXME).  Exceptions include cases where the `Content-Type` header is either missing from the request, or indicates one or more of the following formats:
 
 ```
 application/x-www-form-urlencoded
 text/plain
 ```
 
-In these exception cases, the explicit {{Content-Type}} header MUST be disregarded in favor of the format extension.
+In these exception cases, the explicit `Content-Type` header MUST be disregarded in favor of the format extension.
 
-**3.5.1.9** A service MUST support CORS (FIXME) simple and preflight request flows.  Services SHOULD return "**" as the {{Access-Control-Allow-Origin}} header, unless the request is accompanied by an {{Origin}} header, in which case the service SHOULD return an {{Access-Control-Allow-Origin}} header with a value equal to that of the received {{Origin}} header.  Services MUST NOT return an {{access-control-allow-credentials}} header in any HTTP response.
+**3.5.1.9** A service MUST support CORS (FIXME) simple and preflight request flows.  Services SHOULD return "**" as the `Access-Control-Allow-Origin` header, unless the request is accompanied by an `Origin` header, in which case the service SHOULD return an `Access-Control-Allow-Origin` header with a value equal to that of the received `Origin` header.  Services MUST NOT return an `access-control-allow-credentials` header in any HTTP response.
 
 
 ### 3.5.2 TrackingID Header
 
-**3.5.2.1** A service MUST include a unique {{TrackingID}} header in each REST API request it sends to another service. The value of the {{TrackingID}} MUST include a {{sendertype}} and a {{uuid}} part, and MAY include one or more {{nvpair}} parts, and MAY include one or more {{sequence}} parts.  The format of the {{TrackingID}} value MUST be structured as defined in the following ABNF template:
+**3.5.2.1** A service MUST include a unique `TrackingID` header in each REST API request it sends to another service. The value of the `TrackingID` MUST include a `sendertype` and a `uuid` part, and MAY include one or more `nvpair` parts, and MAY include one or more `sequence` parts.  The format of the `TrackingID` value MUST be structured as defined in the following ABNF template:
 
 **template:**
 
@@ -422,31 +422,31 @@ WX2_550e8400-e29b-41d4-a716-446655440000_locus:1234_calliope:5678_1_2
 ```
 
 
-**3.5.2.2** The {{sendertype}} part of a {{TrackingID}} MUST uniquely identify the immediate sender of the HTTP request within which the {{TrackingID}} is embedded.
+**3.5.2.2** The `sendertype` part of a `TrackingID` MUST uniquely identify the immediate sender of the HTTP request within which the `TrackingID` is embedded.
 
-**3.5.2.3** The {{uuid}} part of a {{TrackingID}} MUST be a standard 8-4-4-4-12 hex string representation of a unique 128 bit value.
+**3.5.2.3** The `uuid` part of a `TrackingID` MUST be a standard 8-4-4-4-12 hex string representation of a unique 128 bit value.
 
-**3.5.2.4** The optional {{nvpair}} part of a {{TrackingID}}, if present, MUST take the form of one or more name/value pairs, the semantics of which are left to the discretion of the service. Note, due to the use of _ as a delimiter for the components of a {{TrackingID}}, services MUST NOT use _ within the name or value fields of the {{nvpair}}.
+**3.5.2.4** The optional `nvpair` part of a `TrackingID`, if present, MUST take the form of one or more name/value pairs, the semantics of which are left to the discretion of the service. Note, due to the use of _ as a delimiter for the components of a `TrackingID`, services MUST NOT use _ within the name or value fields of the `nvpair`.
 
-**3.5.2.5** A service MUST recognize when a received REST request contains a {{TrackingID}} header, and SHOULD include the {{uuid}}, {{nvpair}}, and {{sequence}} parts of the received {{TrackingID}} value when making downstream REST requests to other services while acting on behalf of the received upstream request.  Note that when carrying {{TrackingID}} information from an upstream request to a downstream request, a service MUST replace the {{sendertype}} with its own, MAY append additional entries to the {{nvpair}} part, and MAY append additional call sequence information to the {{sequence part}}.  If additional call sequence information is appended, the values SHOULD represent the count of all REST calls made thus far by that service as part of satisfying the received request (beginning with 0).
+**3.5.2.5** A service MUST recognize when a received REST request contains a `TrackingID` header, and SHOULD include the `uuid`, `nvpair`, and `sequence` parts of the received `TrackingID` value when making downstream REST requests to other services while acting on behalf of the received upstream request.  Note that when carrying `TrackingID` information from an upstream request to a downstream request, a service MUST replace the `sendertype` with its own, MAY append additional entries to the `nvpair` part, and MAY append additional call sequence information to the `sequence part`.  If additional call sequence information is appended, the values SHOULD represent the count of all REST calls made thus far by that service as part of satisfying the received request (beginning with 0).
 
 **example:**
 
-_(note: for clarity we don't include any_ {{{_}nvpair{_}}} _data in this example)_
+_(note: for clarity we don't include any_ `{_}nvpair{_`} _data in this example)_
 
 (FIXME)
 
-**3.5.2.6** When logging activities related to the production of a response to a REST API call, a service SHOULD include the corresponding {{TrackingID}} as part of the log message.  This permits for back-end correlation of log information useful for troubleshooting.
+**3.5.2.6** When logging activities related to the production of a response to a REST API call, a service SHOULD include the corresponding `TrackingID` as part of the log message.  This permits for back-end correlation of log information useful for troubleshooting.
 
 ## 3.6 HTTP Verbs
 
 ### 3.6.1 POST
 
-**3.6.1.1** A POST operation on a URL including {{method}} as a query parameter MUST be regarded as an alternative forms (FIXME) request.
+**3.6.1.1** A POST operation on a URL including `method` as a query parameter MUST be regarded as an alternative forms (FIXME) request.
 
-**3.6.1.2** A POST operation for which the last segment of the URL path is {{invoke}} MUST be regarded as an action resource (FIXME) request.
+**3.6.1.2** A POST operation for which the last segment of the URL path is `invoke` MUST be regarded as an action resource (FIXME) request.
 
-**3.6.1.3** A POST operation for which neither **3.6.1.1** nor **3.6.1.2** apply, MUST be regarded as a request to create a new resource within the collection endpoint identified by the request URL.  A success response to such a request MUST be accompanied by a unique service-generated canonical URL, subordinate to the collection endpoint, and referring to the newly created resource.  This URL MUST be returned to the request originator in the form of both a {{Location}} header in the HTTP response, as well as the JSON formatted narrow representation of the resource.
+**3.6.1.3** A POST operation for which neither **3.6.1.1** nor **3.6.1.2** apply, MUST be regarded as a request to create a new resource within the collection endpoint identified by the request URL.  A success response to such a request MUST be accompanied by a unique service-generated canonical URL, subordinate to the collection endpoint, and referring to the newly created resource.  This URL MUST be returned to the request originator in the form of both a `Location` header in the HTTP response, as well as the JSON formatted narrow representation of the resource.
 
 **example request**:
 
