@@ -1147,7 +1147,7 @@ There always comes a time, eventually, when destructive changes are necessary, a
 Insertion of a version number in REST endpoints is a generally accepted practice in the industry (e.g. used by Google, Twitter, Salesforce, etc.).
 Versioning on media types will not address changes in URL paths or recognized query parameters.
 
-5. References
+# References
 
 * [RWS]	RESTful Web Services <http://shop.oreilly.com/product/9780596529260.do>.
 * [ROS]	RESTful Objects Specification <http://restfulobjects.org>.
