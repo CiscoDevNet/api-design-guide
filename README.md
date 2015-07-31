@@ -1,5 +1,7 @@
 
-# 1 Attribution
+# 1 Preface
+
+Several Cisco business units have teamed up to create a guide for designing RESTful APIs.  This team includes DevNet, Collaboration, and Application Platform Group.  The objective of this document is to act as a guide to define the future, it does not represent the current state of all REST APIs at Cisco.  
 
 
 # 2 Overview
@@ -47,7 +49,7 @@ REST is an architectural style, not a particular set of rules. As a result, ther
 
 # 3 Guidelines
 
-The following guidelines are derived from best practices, as described in a variety of sources including _Shape of an API_ \(link: [#SHAPE]\), _RESTful API Best Practices Guide_ \(link: [#VTG)\], _RESTful Web Services_ \(link: [#RWS)\], _RESTful API Foundation_ \(link: [#RAF)\], _RESTful Objects Specification_ \(link: [#ROS]\).  However, in the interest of reducing ambiguity and promoting consistency among CCATG applications, This section uses somewhat more normative language than is typically used in a best-practices discussion.
+The following guidelines are derived from best practices, as described in a variety of sources including some prior art at Cisco, _RESTful Web Services_ \(link: [#RWS)\], _RESTful API Foundation_ \(link: [#RAF)\], _RESTful Objects Specification_ \(link: [#ROS]\).  However, in the interest of reducing ambiguity and promoting consistency among CCATG applications, This section uses somewhat more normative language than is typically used in a best-practices discussion.
 
 The following definitions apply for all specifications of section 3.
 
@@ -1144,5 +1146,23 @@ New API versions will be rare: non-destructive changes will be the norm, and ver
 There always comes a time, eventually, when destructive changes are necessary, and a new version of an API is needed.
 Insertion of a version number in REST endpoints is a generally accepted practice in the industry (e.g. used by Google, Twitter, Salesforce, etc.).
 Versioning on media types will not address changes in URL paths or recognized query parameters.
+
+5. References
+
+* [RWS]	RESTful Web Services <http://shop.oreilly.com/product/9780596529260.do>.
+* [ROS]	RESTful Objects Specification <http://restfulobjects.org>.
+* [DISC1]	Google APIs Discovery Service <https://developers.google.com/discovery/v1/using#discovery-doc-apiproperties>.
+* [DISC2]	Aggregated Service Discovery <http://tools.ietf.org/html/draft-daboo-aggregated-service-discovery-01>.
+* [MIME2EXT]	Apache MIME to File Extension Mapping <shttp://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types>.
+* [JCR]	A Language for Rules Describing JSON Content <http://tools.ietf.org/html/draft-newton-json-content-rules-00>.
+* [JP]	JSON Patch <http://tools.ietf.org/html/rfc6902>.
+* [URI]	URI Template <http://tools.ietf.org/html/rfc6570>.
+* [HTTP]	Hypertext Transfer Protocol – HTTP/1.1 <http://www.ietf.org/rfc/rfc2616.txt>.
+* [OAUTH4]	The OAuth 2.0 Authorization Framework: Bearer Token Usage <http://tools.ietf.org/html/rfc6750>.
+* [RFC3986]	RFC-3986 <http://www.ietf.org/rfc/rfc3986.txt>.
+* [CORS]	Cross-Origin Resource Sharing <http://www.w3.org/TR/cors/>.
+* [RFC3339]	Date and Time on the Internet: Timestamps<http://www.ietf.org/rfc/rfc3339.txt>.
+* [SCIMSCHEMA]	SCIM Schema <http://tools.ietf.org/html/draft-ietf-scim-core-schema>.
+* [JSONPATH]	JSONPath <http://goessner.net/articles/JsonPath/>.
 
 Copyright 2015 Cisco Systems, Inc
