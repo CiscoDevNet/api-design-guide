@@ -1,6 +1,6 @@
 ## What is this?
 
-This is a summary of common REST API design constraints and conventions intended as a guide for developers when introducing new or modifying existing REST API endpoints. &nbsp;It is derived from the [RESTful API Design Guidelines](README.md)&nbsp;but distilled down to the most essential points such that it can be read in just a few minutes and easily referenced. &nbsp;It serves as a key part of our [Agile Design of REST APIs].
+This is a summary of common REST API design constraints and conventions intended as a guide for developers when introducing new or modifying existing REST API endpoints. &nbsp;It is derived from the [RESTful API Design Guidelines](README.md)&nbsp;but distilled down to the most essential points such that it can be read in just a few minutes and easily referenced.
 
 ## REST API Design Principles
 

@@ -1,7 +1,9 @@
 
 # 1 Preface
 
-Several Cisco business units have teamed up to create this RESTful API design guide.  Collectively, this includes DevNet, Collaboration, and Application Platform Group.  The objective of this document is to act as a guide to define the future, it does not represent the current state of all REST APIs at Cisco.
+Several Cisco business units have teamed up to create this RESTful API design guide.  Collectively, this includes [DevNet](https://developer.cisco.com), [Collaboration](http://www.cisco.com/c/en/us/solutions/collaboration/index.html), and the Application Platform Group.  The objective of this document is to act as a guide to define the future, it does not represent the current state of all REST APIs at Cisco.
+
+tl;dr: These guidelines are also distilled into a set of [API Principles](principles.md).
 
 
 # 2 Overview
