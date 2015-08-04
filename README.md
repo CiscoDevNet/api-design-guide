@@ -364,7 +364,7 @@ The above cannot be assumed to represent documents owned by the request originat
 **3.5.1.1** Services SHOULD support the `ETag` header in any HTTP response where it is reasonable for clients or proxies to cache the associated resource representation. In cases where `ETag` is supported, such resources SHOULD also support `If-Match` and `If-None-Match` headers.
 Where caching is not appropriate, services MUST include a `Cache-Control` header (e.g. max-age=0, no-cache, no-store, must-revalidate) and MUST NOT include an ETag header.
 
-**3.5.1.2** Services SHOULD support standard HTTP compression content codings, as outlined in section 3.5 of the HTTP spec (FIXME).
+**3.5.1.2** Services SHOULD support standard HTTP compression content codings, as outlined in section 3.5 of the [HTTP spec](#references).
 
 **3.5.1.3** If a request includes an HTTP `Accept` header, the service MUST return a resource representation corresponding to a type presented in that header, or return an appropriate error code.  Exceptions include the following list of formats, which MUST be regarded as acceptance by the client of responses with JSON formatted resource representations.
 
@@ -380,9 +380,9 @@ text/plain
 
 **3.5.1.6** If the last segment of the path of a request URL contains a "." (dot) the service MUST regard the portion of the URL following that dot as a "format extension", and the preceding portion of the URL as identifying the actual resource to be operated upon.
 
-**3.5.1.7** A request made on a URL with a format extension MUST be treated as though the corresponding format were provided as an `Accept:` header in the request (based on Apache MIME to file extension mappings MIME2EXT (FIXME).  If the request contains an explicit `Accept:` header, the explicit `Accept` header MUST be disregarded in favor of the format extension.
+**3.5.1.7** A request made on a URL with a format extension MUST be treated as though the corresponding format were provided as an `Accept:` header in the request (based on Apache MIME to file extension mappings [MIME2EXT](#references).  If the request contains an explicit `Accept:` header, the explicit `Accept` header MUST be disregarded in favor of the format extension.
 
-**3.5.1.8** A request made on a URL with a format extension, and including entity content, MUST result in an error response if the request's `Content-Type:` header does not match the format indicated by the format extension (based on Apache MIME to file extension mappings MIME2EXT (FIXME).  Exceptions include cases where the `Content-Type` header is either missing from the request, or indicates one or more of the following formats:
+**3.5.1.8** A request made on a URL with a format extension, and including entity content, MUST result in an error response if the request's `Content-Type:` header does not match the format indicated by the format extension (based on Apache MIME to file extension mappings [MIME2EXT](#references).  Exceptions include cases where the `Content-Type` header is either missing from the request, or indicates one or more of the following formats:
 
 ```
 application/x-www-form-urlencoded
@@ -391,7 +391,7 @@ text/plain
 
 In these exception cases, the explicit `Content-Type` header MUST be disregarded in favor of the format extension.
 
-**3.5.1.9** A service MUST support CORS (FIXME) simple and preflight request flows.  Services SHOULD return "**" as the `Access-Control-Allow-Origin` header, unless the request is accompanied by an `Origin` header, in which case the service SHOULD return an `Access-Control-Allow-Origin` header with a value equal to that of the received `Origin` header.  Services MUST NOT return an `access-control-allow-credentials` header in any HTTP response.
+**3.5.1.9** A service MUST support [CORS](#references) simple and preflight request flows.  Services SHOULD return "**" as the `Access-Control-Allow-Origin` header, unless the request is accompanied by an `Origin` header, in which case the service SHOULD return an `Access-Control-Allow-Origin` header with a value equal to that of the received `Origin` header.  Services MUST NOT return an `access-control-allow-credentials` header in any HTTP response.
 
 
 ### 3.5.2 TrackingID Header
@@ -434,9 +434,9 @@ WX2_550e8400-e29b-41d4-a716-446655440000_locus:1234_calliope:5678_1_2
 
 **example:**
 
-_(note: for clarity we don't include any_ `{_}nvpair{_`} _data in this example)_
+_(note: for clarity we don't include any `nvpair` data in this example)_
 
-(FIXME)
+[tracking id](trackingid-flow.png)
 
 **3.5.2.6** When logging activities related to the production of a response to a REST API call, a service SHOULD include the corresponding `TrackingID` as part of the log message.  This permits for back-end correlation of log information useful for troubleshooting.
 
@@ -444,9 +444,9 @@ _(note: for clarity we don't include any_ `{_}nvpair{_`} _data in this example)_
 
 ### 3.6.1 POST
 
-**3.6.1.1** A POST operation on a URL including `method` as a query parameter MUST be regarded as an alternative forms (FIXME) request.
+**3.6.1.1** A POST operation on a URL including `method` as a query parameter MUST be regarded as an [alternative forms](#references) request.
 
-**3.6.1.2** A POST operation for which the last segment of the URL path is `invoke` MUST be regarded as an action resource (FIXME) request.
+**3.6.1.2** A POST operation for which the last segment of the URL path is `invoke` MUST be regarded as an [action resource](#references) request.
 
 **3.6.1.3** A POST operation for which neither **3.6.1.1** nor **3.6.1.2** apply, MUST be regarded as a request to create a new resource within the collection endpoint identified by the request URL.  A success response to such a request MUST be accompanied by a unique service-generated canonical URL, subordinate to the collection endpoint, and referring to the newly created resource.  This URL MUST be returned to the request originator in the form of both a `Location` header in the HTTP response, as well as the JSON formatted narrow representation of the resource.
 
@@ -487,7 +487,7 @@ Location: http://files.webex.com/files/v3/documents/35bd3e
 
 **3.6.3.1** The GET verb MAY be used for retrieving representational state from a resource. Such a request MUST have no apparent affect on the state of the resource.  However, side effects MAY include incidental changes in state of the server, other resources, or client-invisible fields of the target resource itself, as might be expected in cases where view counts or client metrics are being tracked. &nbsp;
 
-{anchor:3.6.3.2}    *  3.6.3.2*  The GET verb MAY be used to retrieve the states of multiple resources in a single request.  The selection of resources MAY be implicit as with a GET on a collection resource, or explicit as with a GET on a collection or search resource accompanied by selection criteria as query parameters.
+**3.6.3.2**  The GET verb MAY be used to retrieve the states of multiple resources in a single request.  The selection of resources MAY be implicit as with a GET on a collection resource, or explicit as with a GET on a collection or search resource accompanied by selection criteria as query parameters.
 
 **examples**:
 
@@ -498,9 +498,9 @@ GET /files/v3/search?author=shakespeare
 ```
 
 
-In response to such a request, a service SHOULD return JSON structured data containing only the reference representation (FIXME) of each resource matching the request.  The service SHOULD NOT, by default, return the narrow (FIXME) or wide (FIXME) representational state of each resource in the response unless explicitly requested by the client through additional query parameters (see (link: #3.6.3.6 text: 3.6.3.6)).
+In response to such a request, a service SHOULD return JSON structured data containing only the [reference representation](#references) of each resource matching the request.  The service SHOULD NOT, by default, return the [narrow](#references) or [wide](#references) representational state of each resource in the response unless explicitly requested by the client through additional query parameters 3.6.3.6.
 
-**template (FIXME JCR reference)**:
+**[template](#references)**:
 
 ```
 reference_representation {
@@ -526,9 +526,8 @@ root {
 }
 ```
 
-
-{anchor:paginationquery}
-{anchor:3.6.3.3}    *  3.6.3.3*  Services MAY support pagination for GET operations on collection endpoints.  If supported, the request MUST accept limit and offset parameters where the limit is the maximum number of resource to be returned, and offset is the index within the result set of the first resource to be returned.
+### 3.6.3.3 
+Services MAY support pagination for GET operations on collection endpoints.  If supported, the request MUST accept limit and offset parameters where the limit is the maximum number of resource to be returned, and offset is the index within the result set of the first resource to be returned.
 
 **template**:
 
@@ -546,7 +545,7 @@ GET /files/v3/documents?limit=25&offset=0
 
 **3.6.3.4** When returning paginated results, a service MUST support JSON formatted responses based on the following template and field descriptions.
 
-**template (FIXME JCR reference)**:
+**[template](#references)**:
 
 ```
 reference_representation {
@@ -632,7 +631,7 @@ Note that, in the examples above, the "next" and "prev" URLs assume the same for
 
 **3.6.3.5** Service MAY support paging in a non-transactional manner, allowing for the possibility that changes made to a resource collection's membership may affect the responses received by clients in the process of iterating over the collection's paginated contents.  This implies that clients MUST be prepared to handle race conditions resulting in the apparent duplication or omission of resources in paginated results.
 
-*3.6.3.6*  Services MAY support partial retrieval of resource state, based on GET query parameters.  If partial retrieval is supported, the request MUST be formatted according to the following template, and MUST return only those fields requested.  Field identifiers MUST conform to valid URL query component syntax as defined in (link: #RFC3986 text: RFC-3986), specifically the ABNF syntax specification for `pchar+`.
+**3.6.3.6**  Services MAY support partial retrieval of resource state, based on GET query parameters.  If partial retrieval is supported, the request MUST be formatted according to the following template, and MUST return only those fields requested.  Field identifiers MUST conform to valid URL query component syntax as defined in [RFC-3986](#references), specifically the ABNF syntax specification for `pchar+`.
 
 template:
 ```

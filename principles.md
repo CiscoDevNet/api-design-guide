@@ -32,7 +32,7 @@ This is a summary of common REST API design constraints and conventions intended
 
 *P1.* The URL path represents a resource, or a collection of resources.
 
-*P2.* The URL path root is of the form: {{/\{service\}/\{apiclass\}/v\{version\}}}.
+*P2.* The URL path root is of the form: `/{service}/{apiclass}/v{version}`.
 
 *P3.* The last path segment of a collection URL is a plural noun, describing the type of resources it contains.
 
@@ -56,9 +56,9 @@ This is a summary of common REST API design constraints and conventions intended
 
 *Q5*. URL query parameters not semantically equivalent to those found elsewhere in the API have different names.
 
-*Q6*. URL query parameters for selectively retrieving specific fields of a resource conform to the [partial retrieval template]() (FIXME).
+*Q6*. URL query parameters for selectively retrieving specific fields of a resource conform to the [partial retrieval template &sect; 3.6.3.6](README.md) .
 
-*Q7*. URL query parameters pertaining to paginated retrieval of resource representations conform to the [paginated query form]() (FIXME).
+*Q7*. URL query parameters pertaining to paginated retrieval of resource representations conform to the [paginated query form &sect; 3.6.3.3](README.md).
 
 *Q8*. URL query parameter names are alphanumeric and follow camelCase convention (first character is lowercase).
 
@@ -70,7 +70,7 @@ This is a summary of common REST API design constraints and conventions intended
 
 *R2*. A collection representation is encoded as application/json with an array attribute containing representations of resources in the collection.
 
-*R3*. When a collection supports pagination, a representation of that collection conforms to the [paginated collection template]() (FIXME). 
+*R3*. When a collection supports pagination, a representation of that collection conforms to the [paginated collection template &sect; 3.6.3.4](README.md). 
 
 *R4*. A resource representation as provided in a server response includes a "url" field that is the absolute and canonical URL of the resource itself.
 
@@ -78,7 +78,7 @@ This is a summary of common REST API design constraints and conventions intended
 
 *R6*. A response body does not include status of the operation so as to override or otherwise alter the semantics of the HTTP response status code.
 
-*R7*. When returning an HTTP status code of 4xx or 5xx, response entity data conforms to the [error response template]() (FIXME).
+*R7*. When returning an HTTP status code of 4xx or 5xx, response entity data conforms to the [error response template &sect; 3.9.2](README.md).
 
 ### _JSON Attributes_
 
@@ -106,7 +106,7 @@ This is a summary of common REST API design constraints and conventions intended
 
 *J12.* Attributes representing enumerated types have well defined legal values and semantics.
 
-*J13.* No semantic distinction is drawn between the absence of a JSON attribute and it's explicit assignment as&nbsp;{{null}}.
+*J13.* No semantic distinction is drawn between the absence of a JSON attribute and it's explicit assignment as `null`.
 
 ### _Security_
 
