@@ -59,7 +59,7 @@ The following definitions apply for all specifications of section 3.
 
 ```
 {
-    "url" : "https://files.webex.com/files/v3/documents/e23af9"
+    "url" : "https://widgets.example.com/files/v3/documents/e23af9"
 }
 ```
 
@@ -68,10 +68,10 @@ The following definitions apply for all specifications of section 3.
 
 ```
 {
-    "url" : "https://files.webex.com/files/v3/documents/e23af9",
+    "url" : "https://widgets.example.com/files/v3/documents/e23af9",
     "name" : "Awesome Document.docx",
     "comment" : {
-        "url" : "https://files.webex.com/files/v3/comments/a29f31",
+        "url" : "https://widgets.example.com/files/v3/comments/a29f31",
     }
 }
 ```
@@ -81,10 +81,10 @@ The following definitions apply for all specifications of section 3.
 
 ```
 {
-    "url" : "https://files.webex.com/files/v3/documents/e23af9",
+    "url" : "https://widgets.example.com/files/v3/documents/e23af9",
     "name" : "Awesome Document.docx",
     "comment" : {
-        "url" : "https://files.webex.com/files/v3/comments/a29f31",
+        "url" : "https://widgets.example.com/files/v3/comments/a29f31",
         "text": "Wow, that's an awesome document.",
     }
 }
@@ -168,7 +168,7 @@ Content-Type: application/json; charset=UTF-8
 
 ```
 {
-    "url" : "https://files.webex.com/files/v3/documents/e23af9"
+    "url" : "https://widgets.example.com/files/v3/documents/e23af9"
      ...
 }
 ```
@@ -184,14 +184,14 @@ Content-Type: application/json; charset=UTF-8
 
 ```
 {
-    "url" : "https://files.webex.com/files/v3/documents/e23af9",
+    "url" : "https://widgets.example.com/files/v3/documents/e23af9",
     "name" : "Awesome Document.docx",
     "comment" : {
-        "url" : "https://files.webex.com/files/v3/comments/a29f31",
+        "url" : "https://widgets.example.com/files/v3/comments/a29f31",
         "text": "Wow, that's an awesome document.",
     }
     "author" : {
-        "url" : "https://files.webex.com/users/v3/authors/b569fe",
+        "url" : "https://widgets.example.com/users/v3/authors/b569fe",
         "first": "Benvolio",
         "last": "Montague"
     }
@@ -205,14 +205,14 @@ Assuming the above representation was returned by the Files service, it is inval
 
 ```
 {
-    "url" : "https://files.webex.com/files/v3/documents/e23af9",
+    "url" : "https://widgets.example.com/files/v3/documents/e23af9",
     "name" : "Awesome Document.docx",
     "comment" : {
-        "url" : "https://files.webex.com/files/v3/comments/a29f31",
+        "url" : "https://widgets.example.com/files/v3/comments/a29f31",
         "text": "Wow, that's an awesome document.",
     }
     "author" : {
-        "url" : "https://files.webex.com/users/v3/authors/b569fe"
+        "url" : "https://widgets.example.com/users/v3/authors/b569fe"
     }
 }
 ```
@@ -260,8 +260,8 @@ https://{domain}/{service}/{apiclass}/{...}
 **examples**:
 
 ```
-https://files.webex.com/files/{...}
-https://api.webex.com/contacts/scim/{...}
+https://widgets.example.com/files/{...}
+https://api.example.com/contacts/scim/{...}
 ```
 
 
@@ -271,14 +271,14 @@ https://api.webex.com/contacts/scim/{...}
 **example:**
 
 ```
-https://files.webex.com/files/v1/documents/1111
+https://widgets.example.com/files/v1/documents/1111
 ```
 
 
 **invalid example:**
 
 ```
-https://social.webex.com/social/v1/@me/documentlibrary?filterBy=id&filterValue=1111
+https://social.example.com/social/v1/@me/documentlibrary?filterBy=id&filterValue=1111
 ```
 
 
@@ -290,7 +290,7 @@ Both URLs above may return the same resource representation, however the first r
 
 **3.4.1.5** A service MUST NOT apply any semantic interpretation of the domain portion of the URL or HTTP `Host:` header when servicing a request.  That is, the host and domain portion of a request MUST be regarded as opaque.
 
-**3.4.1.6** For the purpose of these guidelines, we define two types of HTTP endpoints. **UI endpoints** are URLs that provide access to resources intended for direct use by a web browser (e.g. HTML, graphics, JavaScript, etc.). **API endpoints** are URLs that provide access to resources intended for use by application clients and other services (e.g. structured data in the form of JSON documents, vCards, etc.).  Further, we define **vanity domain** to mean any FQDN containing a customer-specific identifier (e.g. api.nike.webex.com).  Given these definitions, the following applies for the usage of vanity domains in cloud-based service deployments:
+**3.4.1.6** For the purpose of these guidelines, we define two types of HTTP endpoints. **UI endpoints** are URLs that provide access to resources intended for direct use by a web browser (e.g. HTML, graphics, JavaScript, etc.). **API endpoints** are URLs that provide access to resources intended for use by application clients and other services (e.g. structured data in the form of JSON documents, vCards, etc.).  Further, we define **vanity domain** to mean any FQDN containing a customer-specific identifier (e.g. api.company.example.com).  Given these definitions, the following applies for the usage of vanity domains in cloud-based service deployments:
 
 *  A service deployment MAY support vanity domains in the domain part of UI endpoints.
 
@@ -303,7 +303,7 @@ Both URLs above may return the same resource representation, however the first r
 **example:**
 
 ```
-https://files.webex.com/files/v1/documents/id=1111&id=2222&id=3333
+https://widgets.example.com/files/v1/documents/id=1111&id=2222&id=3333
 ```
 
 
@@ -312,7 +312,7 @@ https://files.webex.com/files/v1/documents/id=1111&id=2222&id=3333
 **example:**
 
 ```
-https://files.webex.com/files/v1/documents/id=1111,2222,3333
+https://widgets.example.com/files/v1/documents/id=1111,2222,3333
 ```
 
 
@@ -330,14 +330,14 @@ https://{domain}/{service}/{version}/{...}/@me/{...}
 **example**:
 
 ```
-https://files.webex.com/files/v3/documents/@me/public
+https://widgets.example.com/files/v3/documents/@me/public
 ```
 
 
 may be interpreted as:
 
 ```
-https://files.webex.com/files/v3/documents/b569fe/public
+https://widgets.example.com/files/v3/documents/b569fe/public
 ```
 
 
@@ -348,7 +348,7 @@ where `b569fe` is the `userId` of the request originator.
 **example**:
 
 ```
-https://files.webex.com/files/v3/documents
+https://widgets.example.com/files/v3/documents
 ```
 
 
@@ -462,11 +462,11 @@ POST /files/v3/documents HTTP/1.1
 
 ```
 HTTP/1.1 201 Created
-Location: http://files.webex.com/files/v3/documents/35bd3e
+Location: http://widgets.example.com/files/v3/documents/35bd3e
 ...
 
 {
-    "url" : "http://files.webex.com/files/v3/documents/35bd3e"
+    "url" : "http://widgets.example.com/files/v3/documents/35bd3e"
 }
 ```
 
@@ -519,9 +519,9 @@ root {
 {
     "items":
     [
-        { "url": "https://files.webex.com/files/v3/documents/234e" },
-        { "url": "https://files.webex.com/files/v3/documents/98ef" },
-        { "url": "https://files.webex.com/files/v3/documents/d4b3" }
+        { "url": "https://widgets.example.com/files/v3/documents/234e" },
+        { "url": "https://widgets.example.com/files/v3/documents/98ef" },
+        { "url": "https://widgets.example.com/files/v3/documents/d4b3" }
     ]
 }
 ```
@@ -584,13 +584,13 @@ The **count** field is an integer representing the total number of elements in t
 {
     "items":
     [
-        { "url": "https://files.webex.com/files/v3/documents/234e" },
-        { "url": "https://files.webex.com/files/v3/documents/98ef" },
-        { "url": "https://files.webex.com/files/v3/documents/d4b3" }
+        { "url": "https://widgets.example.com/files/v3/documents/234e" },
+        { "url": "https://widgets.example.com/files/v3/documents/98ef" },
+        { "url": "https://widgets.example.com/files/v3/documents/d4b3" }
     ],
     "paging":
     {
-        "next": [ "https://files.webex.com/files/v3/documents?limit=3&offset=9" ]
+        "next": [ "https://widgets.example.com/files/v3/documents?limit=3&offset=9" ]
     }
 }
 ```
@@ -602,22 +602,22 @@ The **count** field is an integer representing the total number of elements in t
 {
     "items":
     [
-        { "url": "https://files.webex.com/files/v3/documents/234e" },
-        { "url": "https://files.webex.com/files/v3/documents/98ef" },
-        { "url": "https://files.webex.com/files/v3/documents/d4b3" }
+        { "url": "https://widgets.example.com/files/v3/documents/234e" },
+        { "url": "https://widgets.example.com/files/v3/documents/98ef" },
+        { "url": "https://widgets.example.com/files/v3/documents/d4b3" }
     ],
     "paging":
     {
         "next":
          [
-             "https://files.webex.com/files/v3/documents?limit=3&offset=9",
-             "https://files.webex.com/files/v3/documents?limit=3&offset=12",
-             "https://files.webex.com/files/v3/documents?limit=3&offset=15"
+             "https://widgets.example.com/files/v3/documents?limit=3&offset=9",
+             "https://widgets.example.com/files/v3/documents?limit=3&offset=12",
+             "https://widgets.example.com/files/v3/documents?limit=3&offset=15"
          ],
         "prev":
          [
-             "https://files.webex.com/files/v3/documents?limit=3&offset=3",
-             "https://files.webex.com/files/v3/documents?limit=3&offset=0",
+             "https://widgets.example.com/files/v3/documents?limit=3&offset=3",
+             "https://widgets.example.com/files/v3/documents?limit=3&offset=0",
          ],
         "limit": 3,
         "offset": 6,
@@ -652,7 +652,7 @@ Content-Type: application/json
 ...
  
 {
-    "url": "https://meetings.webex.com/meetings/v3/files/34d3a",
+    "url": "https://meetings.example.com/meetings/v3/files/34d3a",
     "name": "Discuss project Ice House"
 }
 ```
@@ -675,11 +675,11 @@ Content-Type: application/json
 {
     "items": [
         {
-            "url": "https://meetings.webex.com/meetings/v3/files/34d3a",
+            "url": "https://meetings.example.com/meetings/v3/files/34d3a",
             "name": "Discuss project Ice House"
         },
         {
-            "url": "https://meetings.webex.com/meetings/v3/files/64fe1",
+            "url": "https://meetings.example.com/meetings/v3/files/64fe1",
             "name": "Discuss project Wynkoop"
         }
     ]
@@ -786,11 +786,11 @@ or
 
 example:
 
-`https://ramp.webex.com/ramp/v3/actions/sleep/invoke?timeout=60`
+`https://ramp.example.com/ramp/v3/actions/sleep/invoke?timeout=60`
 
 example:
 
-`https://ramp.webex.com/ramp/v3/sources/23fed2a/actions/monitor/invoke`
+`https://ramp.example.com/ramp/v3/sources/23fed2a/actions/monitor/invoke`
 
 where 23fed2a identifies a particular resource on which the service should begin monitoring.
 
@@ -928,7 +928,7 @@ A bulk create of domains in an identity service might look something like this:
 
 ```
 POST /organization/acme/v1/domains HTTP/1.1
-Host: identity.webex.com
+Host: identity.example.com
  
 {
     "items": [
@@ -949,7 +949,7 @@ or
 
 ```
 POST /organization/acme/v1/domains HTTP/1.1
-Host: identity.webex.com
+Host: identity.example.com
  
 {
     "domains": [
@@ -970,20 +970,20 @@ The response, if successful, might then have the following format, consistent wi
 
 ```
 HTTP/1.1 201 Created
-Location: https://identity.webex.com/organizations/{orgid}/v1/domains?id=9876&id=5432&id=6789
+Location: https://identity.example.com/organizations/{orgid}/v1/domains?id=9876&id=5432&id=6789
  
 {
     "domains": [
         {
-            "url": "https://identity.webex.com/organizations/{orgid}/v1/domains/9876",
+            "url": "https://identity.example.com/organizations/{orgid}/v1/domains/9876",
             "domain": "example1.com",
         },
         {
-            "url": "https://identity.webex.com/organizations/{orgid}/v1/domains/5432",
+            "url": "https://identity.example.com/organizations/{orgid}/v1/domains/5432",
             "domain": "example2.com",
         },
         {
-            "url": "https://identity.webex.com/organizations/{orgid}/v1/domains/6789",
+            "url": "https://identity.example.com/organizations/{orgid}/v1/domains/6789",
             "domain": "example3.com",
         }
     ]
@@ -1030,7 +1030,7 @@ template:
 
 example:
 
-`[https://files.webex.com/files/v3/]{...}`
+`[https://widgets.example.com/files/v3/]{...}`
 
 **3.13.2** Services SHOULD evolve their APIs through backward compatible changes. Services SHOULD NOT make non-backward compatible API changes when there exist reasonable backward compatible alternatives.
 
@@ -1048,23 +1048,23 @@ examples:
 
 ```
 GET /files/v1/documents/1111 HTTP/1.1
-Host: files.webex.com
+Host: widgets.example.com
 ```
 
 Should trigger a response of:
 
 ```
 HTTP/1.1 301 Moved Permanently
-Location: [https://files.webex.com/files/v2/documents/1111]
+Location: [https://widgets.example.com/files/v2/documents/1111]
 GET /files/v3/documents/1111 HTTP/1.1
-Host: files.webex.com
+Host: widgets.example.com
 ```
 
 Should trigger a response of:
 
 ```
 HTTP/1.1 307 Temporary Redirect
-Location: [https://files.webex.com/files/v2/documents/1111]
+Location: [https://widgets.example.com/files/v2/documents/1111]
 ```
 
 **3.13.6** Services that host resources containing links to remotely hosted resources MUST provide a means whereby an existing deployment can efficiently update the domain and version components of those remote links. This is in consideration of the need to update remote links when a remote service has rev'd its API or changed its service domain.
@@ -1091,12 +1091,12 @@ example:
 
 ```
 POST /meetings/v1/actions/updatelinks/invoke HTTP/1.1
-Host: meetings.webex.com
+Host: meetings.example.com
 Content-type: application/json; charset=utf-8
 ...
  
 {
-"template": "https://identity.webex.com/identity/{version}",
+"template": "https://identity.example.com/identity/{version}",
 "match": {
         "version": "v1"
     }
@@ -1108,11 +1108,11 @@ Content-type: application/json; charset=utf-8
 
 The above request instructs the server to update all links contained within locally hosted resources and beginning with:
 
-`[https://identity.webex.com/identity/v1]`
+`[https://identity.example.com/identity/v1]`
 
 to now begin with:
 
-`[https://identity.webex.com/identity/v2]`
+`[https://identity.example.com/identity/v2]`
  
 
 ##3.14 Endpoint Classificiation
