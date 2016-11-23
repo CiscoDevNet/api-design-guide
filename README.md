@@ -8,9 +8,15 @@
 
 Much attention in the industry is placed on user experience.  For developers, the API experience is THEIR user experience.  You should keep the customer in mind so that an EXTERNAL developer can easily understand the API.  Prefer ordinary language as opposed to describing properties and concepts in computer science terms unless absolutely necessary.  For example, not everyone knows what idempotent means.  If you must use a term like that, try to define it in terms that can be broadly understood.
 
+## Don't Break The Contract
+
+You should not change your API in a willy-nilly fashion that will break your customers' integrations.  Breaking changes should be introduced only through introducing a new version of your API.
+
 ## Where to start
 
-Start with a REST API design language.  We recommend using Swagger as it has a rich ecosystem of integrations into development stacks.  You should start modeling the API without writing any code.  Share this model with your peers and if possible developers who can give you feedback on the API.  
+Start with a REST API design language.  We recommend using Swagger (aka Open API Specification) as it has a rich ecosystem of integrations into development stacks.  You should start modeling the API without writing any code.  Share this model with your peers and if possible developers who can give you feedback on the API.  
+
+The Swagger specification is not sufficient as the ONLY form of API documentation.  You should create documentation for things like getting started with the API, authentication, edge cases, and so on.
 
 ## Think About Your Resources
 
@@ -26,7 +32,7 @@ For example:
 
 You should use JSON.  
 
-Consider a fictional quiz API:
+Consider a fictional quiz API.  Notice that the endpoint returns an array of `quiz` objects.  
 
 `GET /v1/quizzes`
 
