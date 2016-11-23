@@ -1,7 +1,5 @@
 # Introduction
 
-# General Guidelines
-
 # A Practical REST API Design Method
 
 ## You should think of the API as a product.
@@ -94,7 +92,28 @@ Error code `500`
 }
 ```
 
+# Versioning
 
+Versions should be expressed in the URI of the the API, and should version the API of the service to allow for independent upgrading of services.
+
+```
+https://api.cisco.com/<service>/v1/<method>
+```
+
+When an API has multiple versions, we recommend two versions should be supported at the same time.
+
+Incrementing versions should only happen when breaking changes are necessary to be introduced in the API.  Otherwise, APIs should be backwards compatible as new functionality is introduced.  This can be achieved by introducing new values as optional as opposed to required.
+
+# How To Handle Large Results
+
+Some endpoints, such as collections/lists/arrays, will return more results than are wise to send over the network.  In these cases, you should implement paging.
+
+Pagination should be implemented using the RFC5988 (Web Linking) standard for pagination. When requesting a list of resources the response may contain a `Link` header containing the URLs to the first, next and previous page.
+
+Page sizes should be requested by including the parameter `page_size`.
+
+
+**Notes**
 
 # Data
 
@@ -107,15 +126,3 @@ What encoding should be supported: The majority of new web APIs tend to implemen
 # Links
 
 The use of links: Hypermedia APIs have long been considered by many in the industry as being the way to implement data linkages across multiple endpoints or APIs, with identifiers to related data items implemented as links rather than as a simple surrogate or canonical identifier. However, doing so cohesively across an organization demands a singularity of purpose that a style guide can help deliver. Moreover, there are times when including rather than linking to data for the purposes of efficiency is desirable. The style guide therefore needs to define an organizational approach to hypermedia APIs and, where they are being promoted, define practical steps for making them work.
-
-# Versioning
-
-Versions should be expressed in the URI of the the API, and should version the API of the service to allow for independent upgrading of services.
-
-```
-https://api.cisco.com/<service>/v1/<method>
-```
-
-When an API has multiple versions, we recommend two versions should be supported at the same time.
-
-Incrementing versions should only happen when breaking changes are necessary to be introduced in the API.  Otherwise, APIs should be backwards compatible as new functionality is introduced.  This can be achieved by introducing new values as optional as opposed to required.
