@@ -18,6 +18,8 @@ Start with a REST API design language.  We recommend using Swagger (aka Open API
 
 The Swagger specification is not sufficient as the ONLY form of API documentation.  You should create documentation for the things that surround your API such as getting started, authentication, edge cases, and so on.  Make it easier on your developer customer to get going.
 
+The API definition should be version controlled, and you should expose your specification as an endpoint that a client can use to programmatically understand your API.
+
 ## Think About Your Resources
 
 Generally speaking, a REST API should be designed around the state of the objects that you will be exposing via resources.  You should use HTTP methods (GET, POST, PUT, DELETE) to allow the developer to manipulate the state of the objects exposed.  HTTP headers should be used for passing mandatory arguments such as authentication, accepted content types, etc.  Query parameters should be used for optional arguments and can be omitted as required.  Return codes should mirror the meaning and semantics of the core HTTP specification (i.e., 1xx for informational, 2xx for success, 3xx for redirection, 4xx for cases where the client erred, and 5xx for cases where the server erred).
