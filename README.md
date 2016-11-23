@@ -10,17 +10,17 @@ Much attention in the industry is placed on user experience.  For developers, th
 
 ## Don't Break The Contract
 
-You should not change your API in a willy-nilly fashion that will break your customers' integrations.  Breaking changes should be introduced only through introducing a new version of your API.
+You should not change your API in a willy-nilly fashion that will break your customers' integrations.  Breaking changes should be introduced only through introducing a new version of your API.  [See Versioning](#versioning)
 
 ## Where to start
 
-Start with a REST API design language.  We recommend using Swagger (aka Open API Specification) as it has a rich ecosystem of integrations into development stacks.  You should start modeling the API without writing any code.  Share this model with your peers and if possible developers who can give you feedback on the API.  
+Start with a REST API design language.  We recommend using Swagger (aka Open API Specification) as it has a rich ecosystem of integrations into development stacks.  You should start modeling the API without writing any code.  Share this model with your peers and if possible developers who can give you feedback on the API.  Think lean product principles where you are setting a design hypothesis and proving or disproving your design by testing it with users.
 
-The Swagger specification is not sufficient as the ONLY form of API documentation.  You should create documentation for things like getting started with the API, authentication, edge cases, and so on.
+The Swagger specification is not sufficient as the ONLY form of API documentation.  You should create documentation for the things that surround your API such as getting started, authentication, edge cases, and so on.  Make it easier on your developer customer to get going.
 
 ## Think About Your Resources
 
-Generally speaking, a REST API should be designed around the state of the objects that you will be exposing via resources.  You should use HTTP methods (GET, POST, PUT, DELETE) to allow the developer to manipulate the state of the objects expose.  HTTP headers should be used for passing mandatory arguments such as for authentication, accepted content types, etc.  Query parameters should be used for optional arguments and can be omitted as required.  Return codes should mirror the meaning and semantics of the core HTTP specification (i.e., 1xx for informational, 2xx for success, 3xx for redirection, 4xx for cases where the client erred, and 5xx for cases where the server erred).
+Generally speaking, a REST API should be designed around the state of the objects that you will be exposing via resources.  You should use HTTP methods (GET, POST, PUT, DELETE) to allow the developer to manipulate the state of the objects exposed.  HTTP headers should be used for passing mandatory arguments such as authentication, accepted content types, etc.  Query parameters should be used for optional arguments and can be omitted as required.  Return codes should mirror the meaning and semantics of the core HTTP specification (i.e., 1xx for informational, 2xx for success, 3xx for redirection, 4xx for cases where the client erred, and 5xx for cases where the server erred).
 
 Resources should be represented as nouns and not verbs.  Nouns would be things like, User, Account, Message, Voicemail, File, and so on.  Verbs are things like, Action, Subscribe, Notify.  In most cases, you should be able to come up with alternative schemes to represent the meaning behind a verb into a noun.
 
@@ -73,11 +73,26 @@ Consider a fictional quiz API.  Notice that the endpoint returns an array of `qu
 
 ## Errors
 
-As mentioned above, when errors occur, your API should respond with the correct HTTP error code.  You should also return a useful message to the user.
+As mentioned above, when errors occur, your API should respond with the correct [HTTP error code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).  You should also return a useful message to the user.  The message returned should be formatted as JSON.
 
-# Description
+Examples:
 
-You should use a description language
+Error code `400`
+
+```JSON
+{
+  "message": "Missing a parameter."
+}
+
+Error code `500`
+
+```JSON
+{
+  "message": "Failed to save quiz answer!"
+}
+```
+
+
 
 # Data
 
