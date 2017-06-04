@@ -873,7 +873,7 @@ example 2:
 
 **3.10.2** Existing web services with extensive non-RESTful API's MAY utilize a proxy model to relay and/or translate API requests (e.g. CWCAPI Gateway).
 
-##3.11 Bulk, Batch, and Multi-Result Operations
+## 3.11 Bulk, Batch, and Multi-Result Operations
 For the purposes of these guidelines, a "batch" operation is defined as any API request designed for the express purpose of encapsulating potentially dissimilar HTTP requests for non-atomic processing by the server and independent status code reporting for each operation.
 
 For the purposes of these guidelines, a "bulk" operation is defined as an atomic operation consisting of one HTTP method, one URL, one set of HTTP request headers, and applied uniformly across two or more resources of the same type and contained within the same resource collection. The HTTP status code of a response to a bulk request MUST indicate either complete success or complete failure of the operation, with a 4xx or 5xx code implying there has been no net change to the state of any of the resources targeted by the operation. In the event of a failure response, it is permissible to indicate within the response entity data (as defined in section 3.9) which resource(s) are responsible for the operation failure.
