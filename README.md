@@ -800,7 +800,7 @@ example:
 
 `POST /ramp/v3/actions/sleep/invoke?timeout=60`
 
-##3.9 Status Codes
+## 3.9 Status Codes
 **3.9.1** A service MUST return HTTP response codes in conformance with RFC-2616 and common usage.
 
 
