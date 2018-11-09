@@ -867,7 +867,7 @@ example 2:
 
 **3.9.4** Documentation of response payloads MUST NOT reveal internal implementation details of the server.
 
-##3.10 API Proxy
+## 3.10 API Proxy
 
 **3.10.1** New RESTful web services MUST NOT be designed to require the relay and/or translation of API requests through other services (i.e. proxying).
 
@@ -990,11 +990,11 @@ Location: https://identity.example.com/organizations/{orgid}/v1/domains?id=9876&
 }
 ```
 
-##3.12 Performance
+## 3.12 Performance
 **3.12.1** The API of a service MUST NOT be designed in such a way as to require or encourage the frequent polling of any resource by consuming clients or services.
 
 
-##3.13 Versioning
+## 3.13 Versioning
 The versioning of REST APIs is necessary to accommodate the sometimes unavoidable introduction of non-backward compatible changes. That is, changes which are likely to break compatibility with clients developed to work with earlier versions of the API. The recommended practice for the continuous evolution of a REST API is to avoid making non-backward compatible changes, but it is practical to consider the case where necessary changes cannot meet this standard.
 
 The following represent backward compatible API changes.
@@ -1115,38 +1115,16 @@ to now begin with:
 `[https://identity.example.com/identity/v2]`
  
 
-##3.14 Endpoint Classificiation
+## 3.14 Endpoint Classificiation
 **3.14.1** Every REST API endpoint MUST be classified with respect to documentation publication policy. The documentation publication policy allows for two possible classifications: public, and private. The classification of an endpoint as public implies that the the documentation for that endpoint is unrestricted and should be included as part of the API documentation products shared both internally within Cisco and externally with partners and 3rd party developers. The classification of an endpoint as private, however, implies that the documentation of that endpoint MUST be included as part of the API documentation products shared internally within Cisco, but MUST NOT be included as part of the API documentation products shared externally with partners and 3rd party developers. Note that, regardless of this classification, all endpoints MUST be fully documented in such a way that they are sufficiently complete and accurate as to be suitable for sharing with external parties.
 
 **3.14.2** Every REST API endpoint MUST be classified with respect to endpoint stability policy. The endpoint stability policy allows for three possible classifications: stable, deprecated, and experimental. The classification of an endpoint as stable or experimental implies that the endpoint is governed by all of the specifications outlined in section 3.13 of this document with regard to ongoing support, versioning, maintenance of compatibility, and deprecation, with the only difference being their respective deprecation windows.  The classification of an endpoint as deprecated implies that the endpoint, in its current form, is scheduled for decommissioning. An endpoint classified as deprecated MUST remain available for the duration of at least the minimum deprecation window (24 months for formerly stable endpoints, 6 months for formerly experimental endpoints).  With respect to stability, each version of an endpoint is classified independently of other versions of the same endpoint.
-
-
 
 **3.14.3** Every REST API endpoint MUST be classified with respect to endpoint accessibility policy. The endpoint accessibility policy allows for two possible classifications: external, and internal. The classification of an endpoint as external implies that access to the endpoint by clients on the open internet is not restricted, and that the endpoint may be successfully accessed by such a client, provided the client can supply the necessary proof of authorization (auth_token, etc.). The classification of an endpoint as internal implies that access to the endpoint MUST be restricted in some fashion, so as to entirely prevent access to that endpoint by any entity outside the data center.
 
 **3.14.4** The classifications described in the preceding sections are generally independent, and together constitute a tuple of three classifications for each endpoint: (publication policy, stability policy, accessibility policy). There are some combinations for which, as a practical matter, there will be little use. However for a given endpoint, it MUST be possible to alter each of these policies independently, as business needs change.
 
 **3.14.5** A service MUST document the endpoint stability policy, endpoint accessibility policy, and documentation publication policy for each of its REST API endpoints.
-
-
-#Open Issues
-
-4.1 Multitenancy (closed in 1.0)
-4.2 Traverse-able IDs (closed in 1.0)
-4.3 URL Path Prefixes (closed in 1.0)
-4.1 API Versioning and Deprecation
-Objections have been raised in reference to the inclusion of a versioning part in API URL paths. Arguments against this practice include:
-
-New versions imply URL changes, which can break links to affected resources from other resources.
-Versioning can be more easily managed on media types, or as part of the resource representations.
-The use of versioning in URLs is in contradiction with advice offered in the VTG REST API design guidelines, section 1.11.2.
-Version alignment should be negotiated between a client and server, not embedded directly in a canonical URL.
-Arguments for including version in API URL paths include:
-
-New API versions will be rare: non-destructive changes will be the norm, and versions will not be tied to product releases.
-There always comes a time, eventually, when destructive changes are necessary, and a new version of an API is needed.
-Insertion of a version number in REST endpoints is a generally accepted practice in the industry (e.g. used by Google, Twitter, Salesforce, etc.).
-Versioning on media types will not address changes in URL paths or recognized query parameters.
 
 # References
 
