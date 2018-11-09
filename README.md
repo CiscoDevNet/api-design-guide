@@ -1114,18 +1114,6 @@ to now begin with:
 
 `[https://identity.example.com/identity/v2]`
  
-
-## 3.14 Endpoint Classificiation
-**3.14.1** Every REST API endpoint MUST be classified with respect to documentation publication policy. The documentation publication policy allows for two possible classifications: public, and private. The classification of an endpoint as public implies that the the documentation for that endpoint is unrestricted and should be included as part of the API documentation products shared both internally within Cisco and externally with partners and 3rd party developers. The classification of an endpoint as private, however, implies that the documentation of that endpoint MUST be included as part of the API documentation products shared internally within Cisco, but MUST NOT be included as part of the API documentation products shared externally with partners and 3rd party developers. Note that, regardless of this classification, all endpoints MUST be fully documented in such a way that they are sufficiently complete and accurate as to be suitable for sharing with external parties.
-
-**3.14.2** Every REST API endpoint MUST be classified with respect to endpoint stability policy. The endpoint stability policy allows for three possible classifications: stable, deprecated, and experimental. The classification of an endpoint as stable or experimental implies that the endpoint is governed by all of the specifications outlined in section 3.13 of this document with regard to ongoing support, versioning, maintenance of compatibility, and deprecation, with the only difference being their respective deprecation windows.  The classification of an endpoint as deprecated implies that the endpoint, in its current form, is scheduled for decommissioning. An endpoint classified as deprecated MUST remain available for the duration of at least the minimum deprecation window (24 months for formerly stable endpoints, 6 months for formerly experimental endpoints).  With respect to stability, each version of an endpoint is classified independently of other versions of the same endpoint.
-
-**3.14.3** Every REST API endpoint MUST be classified with respect to endpoint accessibility policy. The endpoint accessibility policy allows for two possible classifications: external, and internal. The classification of an endpoint as external implies that access to the endpoint by clients on the open internet is not restricted, and that the endpoint may be successfully accessed by such a client, provided the client can supply the necessary proof of authorization (auth_token, etc.). The classification of an endpoint as internal implies that access to the endpoint MUST be restricted in some fashion, so as to entirely prevent access to that endpoint by any entity outside the data center.
-
-**3.14.4** The classifications described in the preceding sections are generally independent, and together constitute a tuple of three classifications for each endpoint: (publication policy, stability policy, accessibility policy). There are some combinations for which, as a practical matter, there will be little use. However for a given endpoint, it MUST be possible to alter each of these policies independently, as business needs change.
-
-**3.14.5** A service MUST document the endpoint stability policy, endpoint accessibility policy, and documentation publication policy for each of its REST API endpoints.
-
 # References
 
 * [RWS]	RESTful Web Services <http://shop.oreilly.com/product/9780596529260.do>.
