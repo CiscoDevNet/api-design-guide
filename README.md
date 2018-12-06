@@ -711,7 +711,7 @@ returns the soft deleted resource, and:
 
 returns the contents of documents, including ab34de and all other soft deleted resources formerly contained within that collection.
 
-*3.6.4.3 *The POST verb MAY be used to reverse the soft-delete of a resource, using an "undelete" parameter.
+*3.6.4.3* The POST verb MAY be used to reverse the soft-delete of a resource, using an "undelete" parameter.
 
 example request:
 
