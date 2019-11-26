@@ -5,6 +5,8 @@ Several Cisco business units have teamed up to create this RESTful API design gu
 
 tl;dr: These guidelines are also distilled into a set of [API Principles](principles.md).
 
+**Note: the latest recommendations to design APIs at Cisco are published at https://apistyleguide.cisco.com, and are accessible from Cisco internal network. These recommendations cover both REST and YANG styles, addressing Web APIs and Network Devices APIs respectively.**
+
 
 # 2 Overview
 
