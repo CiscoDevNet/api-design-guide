@@ -249,7 +249,7 @@ The above is valid because the author is represented using a reference represent
 
 ### 3.4.1 General
 
-*3.4.1.1*  The root of a REST resource URL path part MUST be a registered name representing the service hosting the resource.  Services MAY include an additional level of identification to represent a subset, or API-class, of the service's overall API.  Service names and API-class names SHOULD be chosen carefully such that these need not change when products are versioned or rebranded.  The unqualified hostname (or bottom level subdomain) of the domain part of a REST resource URL MAY match the service API name, otherwise it MUST be "api".
+**3.4.1.1**  The root of a REST resource URL path part MUST be a registered name representing the service hosting the resource.  Services MAY include an additional level of identification to represent a subset, or API-class, of the service's overall API.  Service names and API-class names SHOULD be chosen carefully such that these need not change when products are versioned or rebranded.  The unqualified hostname (or bottom level subdomain) of the domain part of a REST resource URL MAY match the service API name, otherwise it MUST be "api".
 
 **template**:
 
@@ -528,8 +528,7 @@ root {
 }
 ```
 
-### 3.6.3.3 
-Services MAY support pagination for GET operations on collection endpoints.  If supported, the request MUST accept limit and offset parameters where the limit is the maximum number of resource to be returned, and offset is the index within the result set of the first resource to be returned.
+**3.6.3.3** Services MAY support pagination for GET operations on collection endpoints.  If supported, the request MUST accept limit and offset parameters where the limit is the maximum number of resource to be returned, and offset is the index within the result set of the first resource to be returned.
 
 **template**:
 
@@ -690,10 +689,11 @@ Content-Type: application/json
 
 **3.6.3.7** Any entity data accompanying a GET request MUST be ignored by the service.
 
-**3.6.4** DELETE
-*3.6.4.1* The DELETE verb MUST be interpreted as a request to delete the specified resource. The request must fail in the event no resource exists with the given URL.
+### 3.6.4 DELETE
 
-*3.6.4.2* The DELETE verb MAY be implemented as a soft delete by default. In this case, a subsequent GET request on the same resource, or any collection having contained that resource, MUST NOT return the resource unless accompanied by an include_deleted flag.
+**3.6.4.1** The DELETE verb MUST be interpreted as a request to delete the specified resource. The request must fail in the event no resource exists with the given URL.
+
+**3.6.4.2** The DELETE verb MAY be implemented as a soft delete by default. In this case, a subsequent GET request on the same resource, or any collection having contained that resource, MUST NOT return the resource unless accompanied by an include_deleted flag.
 
 example request:
 
@@ -713,49 +713,53 @@ returns the soft deleted resource, and:
 
 returns the contents of documents, including ab34de and all other soft deleted resources formerly contained within that collection.
 
-*3.6.4.3* The POST verb MAY be used to reverse the soft-delete of a resource, using an "undelete" parameter.
+**3.6.4.3** The POST verb MAY be used to reverse the soft-delete of a resource, using an "undelete" parameter.
 
 example request:
 
 `POST /files/v3/documents/ab34de?undelete=true`
 
-*3.6.4.4* The DELETE verb MAY accept a "purge" parameter to infer that a delete operation MUST be irreversible.
+**3.6.4.4** The DELETE verb MAY accept a "purge" parameter to infer that a delete operation MUST be irreversible.
 
 example request:
 
 `DELETE /files/v3/documents/ab34de?purge=true`
 
-*3.6.4.5* Any entity data accompanying a DELETE request MUST be ignored by the service.
+**3.6.4.5** Any entity data accompanying a DELETE request MUST be ignored by the service.
 
-**3.6.5** PATCH
-*3.6.5.1* The PATCH verb MAY be used for submitting partial updates to a resource. A PATCH request SHOULD have a Content-Type declared as application/json-patch, and if so MUST conform to a JSON Patch document as defined in [JP]. A server MAY implement a subset of the operations defined in [JP], provided any limitations be clearly documented in the API reference.
+### 3.6.5 PATCH
 
-**3.6.6** HEAD
-*3.6.6.1* A service MAY support HEAD in conformance with the HTTP standard for this method.
+**3.6.5.1** The PATCH verb MAY be used for submitting partial updates to a resource. A PATCH request SHOULD have a Content-Type declared as application/json-patch, and if so MUST conform to a JSON Patch document as defined in [JP]. A server MAY implement a subset of the operations defined in [JP], provided any limitations be clearly documented in the API reference.
 
-*3.6.6.2* Any entity data accompanying a HEAD request MUST be ignored by the service.
+### 3.6.6 HEAD
 
-**3.6.7** OPTIONS
-*3.6.7.1* A service MUST support OPTIONS in conformance with the HTTP standard for this method.
+**3.6.6.1** A service MAY support HEAD in conformance with the HTTP standard for this method.
 
-*3.6.7.2* A service SHOULD NOT require authorization credentials for OPTIONS requests.
+**3.6.6.2** Any entity data accompanying a HEAD request MUST be ignored by the service.
 
-*3.6.7.3* Any entity data accompanying an OPTIONS request MUST be ignored by the service.
+### 3.6.7 OPTIONS
 
-**3.6.8** Safe and Non-Safe Methods
+**3.6.7.1** A service MUST support OPTIONS in conformance with the HTTP standard for this method.
+
+**3.6.7.2** A service SHOULD NOT require authorization credentials for OPTIONS requests.
+
+**3.6.7.3** Any entity data accompanying an OPTIONS request MUST be ignored by the service.
+
+### 3.6.8 Safe and Non-Safe Methods
 For the purposes of these guidelines, the term "safe" is used in the same sense as in [HTTP]. This implies HTTP requests of type GET, HEAD, and OPTIONS are safe, while those of type PUT, POST, PATCH, and DELETE are not.
 
-*3.6.8.1* A resource field included in a JSON representation submitted as part of a PUT, POST, or PATCH, if not recognized as both a valid and client-visible field of the resource, MUST be ignored by the server.
+**3.6.8.1** A resource field included in a JSON representation submitted as part of a PUT, POST, or PATCH, if not recognized as both a valid and client-visible field of the resource, MUST be ignored by the server.
 
-*3.6.8.2* Any non-safe request MUST be permitted solely through the resource's canonical URL.
+**3.6.8.2** Any non-safe request MUST be permitted solely through the resource's canonical URL.
 
-*3.6.8.3* Any non-safe request MUST require OAuth2 authorization.
+**3.6.8.3** Any non-safe request MUST require OAuth2 authorization.
 
-*3.6.8.4* Any safe request MUST require OAuth2 authorization, unless anonymous access to the resource is an explicitly intended feature of the API.
+**3.6.8.4** Any safe request MUST require OAuth2 authorization, unless anonymous access to the resource is an explicitly intended feature of the API.
 
 
 ## 3.7 Alternative Forms
-*3.7.1* To offer clients a means for mitigating against non-compliant browsers and badly-behaved HTTP proxies, services MUST, in addition to the standard verb invocation, allow clients to submit any standard HTTP request using the POST verb, providing the intended verb as a method query parameter. Such requests MUST conform to the following template.
+
+**3.7.1** To offer clients a means for mitigating against non-compliant browsers and badly-behaved HTTP proxies, services MUST, in addition to the standard verb invocation, allow clients to submit any standard HTTP request using the POST verb, providing the intended verb as a method query parameter. Such requests MUST conform to the following template.
 
 `POST /{service}/{version}/{collectionpath|resourcepath}?_method={verb}`
 
