@@ -1,12 +1,12 @@
 
 # 1 Preface
 
+**Note to Cisco engineering: the latest guidance and recommendations for API programs and API design are accessible at https://developer.cisco.com/api-guidelines. These recommendations apply to REST, YANG and gRPC styles of APIs. They also include guidelines for developer experience including lifecycle management, reference documentation, developer resources and developer support.**
+
+
 Several Cisco business units have teamed up to create this RESTful API design guide.  Collectively, this includes [DevNet](https://developer.cisco.com), [Collaboration](http://www.cisco.com/c/en/us/solutions/collaboration/index.html), and the Application Platform Group.  The objective of this document is to act as a guide to define the future, it does not represent the current state of all REST APIs at Cisco.
 
 tl;dr: These guidelines are also distilled into a set of [API Principles](principles.md).
-
-**Note: the latest recommendations to design APIs at Cisco are published at https://apistyleguide.cisco.com, and are accessible from Cisco internal network. These recommendations cover both REST and YANG styles, addressing Web APIs and Network Devices APIs respectively.**
-
 
 # 2 Overview
 
