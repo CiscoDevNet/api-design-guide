@@ -1,8 +1,9 @@
 
 # 1 Preface
 
-**Note to Cisco engineering: the latest guidance and recommendations for API programs and API design are accessible at https://developer.cisco.com/api-guidelines. These recommendations apply to REST, YANG and gRPC styles of APIs. They also include guidelines for developer experience including lifecycle management, reference documentation, developer resources and developer support.**
+**If you work for Cisco, the latest guidance and recommendations for API programs and API design are accessible with your Cisco login at https://developer.cisco.com/api-guidelines. These recommendations apply to REST, YANG and gRPC styles of APIs. They also include guidelines for developer experience including lifecycle management, reference documentation, developer resources and developer support.**
 
+For REST API resources available without a login, please look at our OpenAPI rulesets encoded in [api-insights-openapi-rulesets](https://github.com/cisco-developer/api-insights-openapi-rulesets).
 
 Several Cisco business units have teamed up to create this RESTful API design guide.  Collectively, this includes [DevNet](https://developer.cisco.com), [Collaboration](http://www.cisco.com/c/en/us/solutions/collaboration/index.html), and the Application Platform Group.  The objective of this document is to act as a guide to define the future, it does not represent the current state of all REST APIs at Cisco.
 
@@ -11,7 +12,6 @@ tl;dr: These guidelines are also distilled into a set of [API Principles](princi
 # 2 Overview
 
 This document serves as a high-level description of our API Design Guidelines.
-
 
 ## 2.1 Goals
 
@@ -23,7 +23,6 @@ A primary goal of these guidelines is to establish a cohesive look and feel for 
 
 These guidelines also omit discussion regarding the means by which an application might implement a RESTful API.  No assumptions are made regarding programming language or the use of application server frameworks.
 
-
 ## 2.3 "API-Only" Communications
 
 Why is it valuable to route all communications between web services through well-defined APIs? For intra-Cisco communications, why not just use glass-box knowledge of the internals of other services to tie things together?
@@ -34,18 +33,15 @@ But what about "advanced" functionality that is needed for our intra-Cisco servi
 
 We also recognize that in a complex system, composed of many components evolving on separate schedules, it is imperative that the interfaces between these components be robust, well understood, and as loosely coupled as possible.  By defining high quality APIs we can address these concerns by providing rules of engagement that reduce the risk of breakage when deploying component upgrades.  In a RESTful API, these typically allow for the continuous introduction of new features, feature extensions, and resources, but disallow the elimination or destructive alteration of those previously supported (outside of major API changes, which are versioned and intentionally rare).  With this essential strategy, system components can evolve at their own pace without the burden of complicated rollout schedule dependencies which can significantly delay the release of important products and features.
 
-
 ## 2.4 Open Standards
 
 Open standards are a key part of the Cisco strategy. When a service implements a standard, the APIs defined by the standard should be used whenever possible, and extensions should be designed in a way that dovetails with the standard itself. When a service is in a space with existing standards, they should be implemented whenever appropriate. This document is primarily focused on how to build an API to expose functionality that is **not** standards-based, and should **not** be interpreted as a justification to avoid standards-based development.
-
 
 ## 2.5 RESTful
 
 APIs to a Cisco product or service should be primarily RESTful. That is, in keeping with Roy Fielding's principles of representational state transformations. Briefly, this means that the API should be designed around identifiable resources which can be manipulated by a small handful of pre-defined actions (creation, modification, deletion).  If the reader wishes to “brush up” on the subject, there are many excellent resources.  We would recommend starting with [Dr. Roy Fielding's paper](#references) is the seminal tome on the subject of REST.  However, that paper is too academic in nature to be applied as a practical guideline.  There are many excellent practical resources on the subject, probably the best of which is the O'Reilly book [“RESTful Web Services”](#references) written by Richardson and Ruby.
 
 Note that SOAP is not RESTful.
-
 
 ## 2.6 Aesthetics Matter
 
