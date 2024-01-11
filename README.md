@@ -1,9 +1,9 @@
 
 # 1 Preface
 
-**If you work for Cisco, the latest guidance and recommendations for API programs and API design are accessible with your Cisco login at https://developer.cisco.com/api-guidelines. These recommendations apply to REST, YANG and gRPC styles of APIs. They also include guidelines for developer experience including lifecycle management, reference documentation, developer resources and developer support.**
+**If you work for Cisco, the latest guidance and recommendations for API programs and API design are accessible with your Cisco login at https://developer.cisco.com/api-guidelines. These recommendations apply to REST, YANG, and gRPC styles of APIs. They also include guidelines for developer experience including lifecycle management, reference documentation, developer resources, and developer support.**
 
-For REST API resources available without a login, please look at our OpenAPI rulesets encoded in [api-insights-openapi-rulesets](https://github.com/cisco-developer/api-insights-openapi-rulesets).
+For REST API resources available without a login, please look at our OpenAPI rulesets encoded in [api-insights-openapi-rulesets](https://github.com/ciscodevnet/api-insights-openapi-rulesets).
 
 Several Cisco business units have teamed up to create this RESTful API design guide.  Collectively, this includes [DevNet](https://developer.cisco.com), [Collaboration](http://www.cisco.com/c/en/us/solutions/collaboration/index.html), and the Application Platform Group.  The objective of this document is to act as a guide to define the future, it does not represent the current state of all REST APIs at Cisco.
 
@@ -1134,4 +1134,4 @@ to now begin with:
 * [SCIMSCHEMA]	SCIM Schema <http://tools.ietf.org/html/draft-ietf-scim-core-schema>.
 * [JSONPATH]	JSONPath <http://goessner.net/articles/JsonPath/>.
 
-Copyright 2015 Cisco Systems, Inc
+Copyright 2015-2024 Cisco Systems, Inc
